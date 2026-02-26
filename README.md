@@ -6,7 +6,7 @@ Pre-built binaries for the Honda Smart Talk voice assistant running on **Qualcom
 
 | File | Size | Purpose |
 |------|------|---------|
-| `apk/app-debug.apk` | 20M | Debug APK (arm64-v8a) |
+| `apk/app-debug.apk` | 19M | Debug APK (arm64-v8a) |
 | `models/stt/ggml-base.en.bin` | 141M | Whisper Base — English speech-to-text |
 | `models/tts/en_US-lessac-medium.onnx` | 60M | Piper TTS — English voice synthesis |
 | `models/tts/en_US-lessac-medium.onnx.json` | 5K | Piper TTS model config |
@@ -17,10 +17,10 @@ Pre-built binaries for the Honda Smart Talk voice assistant running on **Qualcom
 ## Pipeline
 
 ```
-Mic → Whisper STT → Hybrid NLU (85 regex patterns) → Action Dispatch → Piper TTS → Speaker
+Mic → Whisper STT → Hybrid NLU (~145 regex patterns) → Action Dispatch → Piper TTS → Speaker
 ```
 
-All inference runs locally. No cloud, no network required. The NLU engine uses regex patterns (no LLM model needed) and supports all 16 voice actions: 6 HVAC, 5 media, 1 navigation, 2 communications, 1 smart home.
+All inference runs locally. No cloud, no network required. The NLU engine uses regex patterns (no LLM model needed) and supports 23 voice actions: 6 HVAC, 7 vehicle controls, 5 media, 1 volume, 1 navigation, 2 communications, 1 smart home. Bilingual: English + Japanese. Brand toggle: Honda / Konfluence.
 
 ## Quick Setup
 
@@ -73,3 +73,6 @@ After pushing to device, launch the app and tap the orb. Try:
 - *"Navigate to Starbucks"*
 - *"Turn on the AC"*
 - *"Set fan speed to 3"*
+- *"Open the sunroof"*
+- *"Turn on the hazard lights"*
+- *"Call John"*
